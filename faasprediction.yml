@@ -1,0 +1,10 @@
+provider:
+    name: faas
+    gateway: http://localhost
+    network: "func_functions"
+
+functions:
+    faasprediction:
+        lang: python
+        handler: ./handler.py
+        image: incep
