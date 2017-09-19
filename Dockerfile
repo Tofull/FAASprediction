@@ -15,8 +15,12 @@ COPY downloader.py .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+ENV write_timeout="10000"
+ENV read_timeout="10000"
+ENV exec_timeout="10000"
 ENV fprocess="python index.py"
 ENV TF_CPP_MIN_LOG_LEVEL=3
+
 
 HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 
