@@ -16,6 +16,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 ENV fprocess="python index.py"
+ENV TF_CPP_MIN_LOG_LEVEL=3
 
 HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 
