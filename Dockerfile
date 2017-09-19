@@ -2,6 +2,7 @@ FROM tensorflow/tensorflow:latest-py3
 
 RUN apt-get update && apt-get install -yq git && rm -rf /var/lib/apt/lists/*
 
+WORKDIR /root/
 RUN git clone https://github.com/Tofull/image-classifier-service.git
 
 ADD https://github.com/alexellis/faas/releases/download/0.6.5/fwatchdog /usr/bin
