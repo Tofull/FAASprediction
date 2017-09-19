@@ -4,5 +4,8 @@ provider:
     network: "func_functions"
 
 functions:
-    func_faasprediction:
-        image: incep
+    faasprediction:
+        lang: Dockerfile
+        handler: .
+        image: functions/incep
+        fprocess: "python index.py"
