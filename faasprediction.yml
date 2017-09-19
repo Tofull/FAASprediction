@@ -4,7 +4,5 @@ provider:
     network: "func_functions"
 
 functions:
-    faasprediction:
-        lang: python
-        handler: ./handler.py
+    func_faasprediction:
         image: incep
