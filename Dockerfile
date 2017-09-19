@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow
+FROM tensorflow/tensorflow:latest-py3
 
 RUN apt-get update && apt-get install -yq git && rm -rf /var/lib/apt/lists/*
 
@@ -9,12 +9,12 @@ RUN chmod +x /usr/bin/fwatchdog
 
 WORKDIR /root/
 
-COPY handler.py .
+COPY index.py .
 COPY downloader.py .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-ENV fprocess="python handler.py"
+ENV fprocess="python index.py"
 
 HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 
